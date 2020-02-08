@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	"github.com/fogleman/mol/mol"
-	. "github.com/fogleman/pt/pt"
+	. "github.com/clems71/pt/pt"
 )
 
 func GetColor(name string) Color {

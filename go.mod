@@ -1,4 +1,4 @@
-module github.com/fogleman/pt
+module github.com/clems71/pt
 
 go 1.13
 

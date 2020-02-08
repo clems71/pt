@@ -9,7 +9,7 @@ branches:
   except:
     - embree
 
-install: go get -v -t github.com/fogleman/pt/pt
+install: go get -v -t github.com/clems71/pt/pt
 
 script:
   - go test -v ./pt/... && go build ./pt
@@ -37,4 +37,3 @@ script:
   - go build examples/teapot.go
   - go build examples/toybrick.go
   - go build examples/volume.go
-

@@ -9,7 +9,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/fogleman/pt/pt"
+	"github.com/clems71/pt/pt"
 )
 
 func main() {

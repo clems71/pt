@@ -3,7 +3,7 @@ package main
 import (
 	"math/rand"
 
-	. "github.com/fogleman/pt/pt"
+	. "github.com/clems71/pt/pt"
 )
 
 const H = 1.46875

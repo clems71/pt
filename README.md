@@ -1,6 +1,6 @@
 # pt: a golang path tracer
 
-[![Build Status](https://travis-ci.org/fogleman/pt.png?branch=master)](https://travis-ci.org/fogleman/pt) [![GoDoc](https://godoc.org/github.com/fogleman/pt/pt?status.svg)](https://godoc.org/github.com/fogleman/pt/pt)
+[![Build Status](https://travis-ci.org/fogleman/pt.png?branch=master)](https://travis-ci.org/fogleman/pt) [![GoDoc](https://godoc.org/github.com/clems71/pt/pt?status.svg)](https://godoc.org/github.com/clems71/pt/pt)
 
 This is a CPU-only, unidirectional [path tracing](http://en.wikipedia.org/wiki/Path_tracing) engine written in Go. It has lots of features and a simple API.
 
@@ -10,21 +10,21 @@ This is a CPU-only, unidirectional [path tracing](http://en.wikipedia.org/wiki/P
 
 ### Features
 
-* Supports OBJ and STL
-* Supports textures, bump maps and normal maps
-* Supports raymarching of signed distance fields
-* Supports volume rendering from image slices
-* Supports various material properties
-* Supports configurable depth of field
-* Supports iterative rendering
-* Supports adaptive sampling and firefly reduction
-* Uses k-d trees to accelerate ray intersection tests
-* Uses all CPU cores in parallel
-* 100% pure Go with no dependencies besides the standard library
+- Supports OBJ and STL
+- Supports textures, bump maps and normal maps
+- Supports raymarching of signed distance fields
+- Supports volume rendering from image slices
+- Supports various material properties
+- Supports configurable depth of field
+- Supports iterative rendering
+- Supports adaptive sampling and firefly reduction
+- Uses k-d trees to accelerate ray intersection tests
+- Uses all CPU cores in parallel
+- 100% pure Go with no dependencies besides the standard library
 
 ### Installation
 
-    go get -u github.com/fogleman/pt/pt
+    go get -u github.com/clems71/pt/pt
 
 ### Examples
 
@@ -47,7 +47,7 @@ The following code demonstrates the basics of the API.
 ```go
 package main
 
-import . "github.com/fogleman/pt/pt"
+import . "github.com/clems71/pt/pt"
 
 func main() {
 	// create a scene
@@ -101,14 +101,14 @@ Combining these features results in cleaner, faster renders. The specific parame
 
 Here are some resources that I have found useful.
 
-* [WebGL Path Tracing - Evan Wallace](http://madebyevan.com/webgl-path-tracing/)
-* [Global Illumination in a Nutshell](http://www.thepolygoners.com/tutorials/GIIntro/GIIntro.htm)
-* [Simple Path Tracing - Iñigo Quilez](http://www.iquilezles.org/www/articles/simplepathtracing/simplepathtracing.htm)
-* [Realistic Raytracing - Zack Waters](http://web.cs.wpi.edu/~emmanuel/courses/cs563/write_ups/zackw/realistic_raytracing.html)
-* [Reflections and Refractions in Ray Tracing - Bram de Greve](http://graphics.stanford.edu/courses/cs148-10-summer/docs/2006--degreve--reflection_refraction.pdf)
-* [Better Sampling - Rory Driscoll](http://www.rorydriscoll.com/2009/01/07/better-sampling/)
-* [Ray Tracing for Global Illumination - Nelson Max at UC Davis](https://www.youtube.com/playlist?list=PLslgisHe5tBPckSYyKoU3jEA4bqiFmNBJ)
-* [Physically Based Rendering - Matt Pharr, Greg Humphreys](http://www.amazon.com/Physically-Based-Rendering-Second-Edition/dp/0123750792)
+- [WebGL Path Tracing - Evan Wallace](http://madebyevan.com/webgl-path-tracing/)
+- [Global Illumination in a Nutshell](http://www.thepolygoners.com/tutorials/GIIntro/GIIntro.htm)
+- [Simple Path Tracing - Iñigo Quilez](http://www.iquilezles.org/www/articles/simplepathtracing/simplepathtracing.htm)
+- [Realistic Raytracing - Zack Waters](http://web.cs.wpi.edu/~emmanuel/courses/cs563/write_ups/zackw/realistic_raytracing.html)
+- [Reflections and Refractions in Ray Tracing - Bram de Greve](http://graphics.stanford.edu/courses/cs148-10-summer/docs/2006--degreve--reflection_refraction.pdf)
+- [Better Sampling - Rory Driscoll](http://www.rorydriscoll.com/2009/01/07/better-sampling/)
+- [Ray Tracing for Global Illumination - Nelson Max at UC Davis](https://www.youtube.com/playlist?list=PLslgisHe5tBPckSYyKoU3jEA4bqiFmNBJ)
+- [Physically Based Rendering - Matt Pharr, Greg Humphreys](http://www.amazon.com/Physically-Based-Rendering-Second-Edition/dp/0123750792)
 
 ### Samples
 

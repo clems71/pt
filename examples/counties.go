@@ -6,7 +6,7 @@ import (
 	"os"
 	"strconv"
 
-	. "github.com/fogleman/pt/pt"
+	. "github.com/clems71/pt/pt"
 	colorful "github.com/lucasb-eyer/go-colorful"
 )
 

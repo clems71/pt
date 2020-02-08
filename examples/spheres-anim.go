@@ -6,7 +6,7 @@ import (
 	"math/rand"
 	"time"
 
-	. "github.com/fogleman/pt/pt"
+	. "github.com/clems71/pt/pt"
 )
 
 const (
