@@ -6,19 +6,20 @@ import (
 )
 
 var (
-	Black = Color{}
-	White = Color{1, 1, 1}
+	Transparent = Color{}
+	Black       = Color{0, 0, 0, 1}
+	White       = Color{1, 1, 1, 1}
 )
 
 type Color struct {
-	R, G, B float64
+	R, G, B, A float64
 }
 
 func HexColor(x int) Color {
 	r := float64((x>>16)&0xff) / 255
 	g := float64((x>>8)&0xff) / 255
 	b := float64((x>>0)&0xff) / 255
-	return Color{r, g, b}.Pow(2.2)
+	return Color{r, g, b, 1.0}.Pow(2.2)
 }
 
 func Kelvin(K float64) Color {
@@ -64,54 +65,56 @@ func Kelvin(K float64) Color {
 	red = math.Min(1, red/255)
 	green = math.Min(1, green/255)
 	blue = math.Min(1, blue/255)
-	return Color{red, green, blue}
+	return Color{red, green, blue, 1.0}
 }
 
 func NewColor(c color.Color) Color {
-	r, g, b, _ := c.RGBA()
-	return Color{float64(r) / 65535, float64(g) / 65535, float64(b) / 65535}
+	r, g, b, a := c.RGBA()
+	return Color{float64(r) / 65535, float64(g) / 65535, float64(b) / 65535, float64(a) / 65535}
 }
 
 func (a Color) RGBA() color.RGBA {
 	r := uint8(math.Max(0, math.Min(255, a.R*255)))
 	g := uint8(math.Max(0, math.Min(255, a.G*255)))
 	b := uint8(math.Max(0, math.Min(255, a.B*255)))
-	return color.RGBA{r, g, b, 255}
+	alpha := uint8(math.Max(0, math.Min(255, a.A*255)))
+	return color.RGBA{r, g, b, alpha}
 }
 
 func (a Color) RGBA64() color.RGBA64 {
 	r := uint16(math.Max(0, math.Min(65535, a.R*65535)))
 	g := uint16(math.Max(0, math.Min(65535, a.G*65535)))
 	b := uint16(math.Max(0, math.Min(65535, a.B*65535)))
-	return color.RGBA64{r, g, b, 65535}
+	alpha := uint16(math.Max(0, math.Min(65535, a.A*65535)))
+	return color.RGBA64{r, g, b, alpha}
 }
 
 func (a Color) Add(b Color) Color {
-	return Color{a.R + b.R, a.G + b.G, a.B + b.B}
+	return Color{a.R + b.R, a.G + b.G, a.B + b.B, a.A + b.A}
 }
 
 func (a Color) Sub(b Color) Color {
-	return Color{a.R - b.R, a.G - b.G, a.B - b.B}
+	return Color{a.R - b.R, a.G - b.G, a.B - b.B, a.A - b.A}
 }
 
 func (a Color) Mul(b Color) Color {
-	return Color{a.R * b.R, a.G * b.G, a.B * b.B}
+	return Color{a.R * b.R, a.G * b.G, a.B * b.B, a.A * b.A}
 }
 
 func (a Color) MulScalar(b float64) Color {
-	return Color{a.R * b, a.G * b, a.B * b}
+	return Color{a.R * b, a.G * b, a.B * b, a.A}
 }
 
 func (a Color) DivScalar(b float64) Color {
-	return Color{a.R / b, a.G / b, a.B / b}
+	return Color{a.R / b, a.G / b, a.B / b, a.A}
 }
 
 func (a Color) Min(b Color) Color {
-	return Color{math.Min(a.R, b.R), math.Min(a.G, b.G), math.Min(a.B, b.B)}
+	return Color{math.Min(a.R, b.R), math.Min(a.G, b.G), math.Min(a.B, b.B), math.Min(a.A, b.A)}
 }
 
 func (a Color) Max(b Color) Color {
-	return Color{math.Max(a.R, b.R), math.Max(a.G, b.G), math.Max(a.B, b.B)}
+	return Color{math.Max(a.R, b.R), math.Max(a.G, b.G), math.Max(a.B, b.B), math.Max(a.A, b.A)}
 }
 
 func (a Color) MinComponent() float64 {
@@ -123,7 +126,7 @@ func (a Color) MaxComponent() float64 {
 }
 
 func (a Color) Pow(b float64) Color {
-	return Color{math.Pow(a.R, b), math.Pow(a.G, b), math.Pow(a.B, b)}
+	return Color{math.Pow(a.R, b), math.Pow(a.G, b), math.Pow(a.B, b), a.A}
 }
 
 func (a Color) Mix(b Color, pct float64) Color {
