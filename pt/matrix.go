@@ -11,6 +11,19 @@ type Matrix struct {
 	x30, x31, x32, x33 float64
 }
 
+func CreateMatrix(
+	x00, x01, x02, x03 float64,
+	x10, x11, x12, x13 float64,
+	x20, x21, x22, x23 float64,
+	x30, x31, x32, x33 float64,
+) Matrix {
+	return Matrix{
+		x00, x01, x02, x03,
+		x10, x11, x12, x13,
+		x20, x21, x22, x23,
+		x30, x31, x32, x33,
+	}
+}
 func Identity() Matrix {
 	return Matrix{
 		1, 0, 0, 0,
